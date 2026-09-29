@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cplayer001scene"]
+
+[ext_resource type="Script" path="res://scripts/entities/player.gd" id="1_playerscript"]
+
+[ext_resource type="PackedScene" path="res://scenes/vfx/love_beam.tscn" id="3_beamscene"]
+[ext_resource type="Script" path="res://scripts/entities/character_rig.gd" id="4_rig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(40, 110)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_playerscript")
+
+
+[node name="Rig" type="Node2D" parent="."]
+position = Vector2(0, 55)
+scale = Vector2(0.72, 0.72)
+script = ExtResource("4_rig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="LoveBeam" parent="." instance=ExtResource("3_beamscene")]
+
+[node name="StunTimer" type="Timer" parent="."]
+one_shot = true

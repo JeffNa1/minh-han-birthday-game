@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5lovebeam001"]
+
+[ext_resource type="Script" path="res://scripts/vfx/love_beam.gd" id="1_beam"]
+
+[node name="LoveBeam" type="Node2D"]
+script = ExtResource("1_beam")

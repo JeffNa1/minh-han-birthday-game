@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmanager001scene"]
+
+[ext_resource type="Script" path="res://scripts/entities/manager.gd" id="1_manager"]
+[ext_resource type="Script" path="res://scripts/entities/character_rig.gd" id="2_rig"]
+
+[node name="Manager" type="CharacterBody2D" groups=["managers"]]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_manager")
+
+[node name="Cone" type="Node2D" parent="."]
+z_index = -5
+
+[node name="Rig" type="Node2D" parent="."]
+position = Vector2(0, 55)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("2_rig")
+character = "manager"

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cboy001scene"]
+
+[ext_resource type="Script" path="res://scripts/entities/boy.gd" id="1_boyscript"]
+[ext_resource type="Script" path="res://scripts/entities/character_rig.gd" id="2_rig"]
+[ext_resource type="Script" path="res://scripts/vfx/charm_gauge.gd" id="3_gauge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(44, 30)
+
+[node name="Boy" type="CharacterBody2D" groups=["boys"]]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_boyscript")
+
+[node name="Rig" type="Node2D" parent="."]
+position = Vector2(0, 55)
+scale = Vector2(0.76, 0.76)
+script = ExtResource("2_rig")
+character = "nam_anh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 45)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Gauge" type="Node2D" parent="."]
+position = Vector2(0, -78)
+script = ExtResource("3_gauge")

@@ -1,0 +1,6 @@
+# Godot cache and local-only files
+.godot/
+*.tmp
+# Machine-specific notes and the retired export preset stay local.
+HANDOFF.md
+export_presets.cfg

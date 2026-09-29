@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://crival001scene"]
+
+[ext_resource type="Script" path="res://scripts/entities/rival_girl.gd" id="1_rivalscript"]
+[ext_resource type="Script" path="res://scripts/entities/character_rig.gd" id="2_rig"]
+[ext_resource type="PackedScene" path="res://scenes/vfx/love_beam.tscn" id="3_beamscene"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(40, 110)
+
+[node name="RivalGirl" type="CharacterBody2D" groups=["rivals"]]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_rivalscript")
+
+[node name="Rig" type="Node2D" parent="."]
+position = Vector2(0, 55)
+scale = Vector2(0.72, 0.72)
+script = ExtResource("2_rig")
+character = "rival"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="LoveBeam" parent="." instance=ExtResource("3_beamscene")]
+
+[node name="StunTimer" type="Timer" parent="."]
+one_shot = true

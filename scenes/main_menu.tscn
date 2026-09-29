@@ -1,0 +1,193 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmainmenu001"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_menuscript"]
+[ext_resource type="Script" path="res://scripts/art/zone_backdrop.gd" id="2_backdrop"]
+[ext_resource type="Script" path="res://scripts/art/zone_far.gd" id="2_far"]
+[ext_resource type="Script" path="res://scripts/art/ambient.gd" id="3_ambient"]
+[ext_resource type="Script" path="res://scripts/entities/character_rig.gd" id="4_rig"]
+[ext_resource type="Script" path="res://scripts/vfx/fx.gd" id="5_fx"]
+[ext_resource type="FontVariation" path="res://assets/fonts/title_font.tres" id="6_title"]
+[ext_resource type="Script" path="res://scripts/ui/currency_bar.gd" id="7_currency"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menuscript")
+
+[node name="Far" type="Node2D" parent="."]
+z_index = -30
+script = ExtResource("2_far")
+
+[node name="Backdrop" type="Node2D" parent="."]
+position = Vector2(-300, 0)
+script = ExtResource("2_backdrop")
+width = 2240.0
+
+[node name="Ambient" type="Node2D" parent="."]
+script = ExtResource("3_ambient")
+
+[node name="Floaters" type="Node2D" parent="."]
+
+[node name="ghtk" type="Node2D" parent="Floaters"]
+position = Vector2(70, 470)
+scale = Vector2(0.95, 0.95)
+script = ExtResource("4_rig")
+character = "nam_anh"
+
+[node name="pink_hoodie" type="Node2D" parent="Floaters"]
+position = Vector2(135, 488)
+scale = Vector2(1.0, 1.0)
+script = ExtResource("4_rig")
+character = "nam_anh"
+
+[node name="polo" type="Node2D" parent="Floaters"]
+position = Vector2(205, 505)
+scale = Vector2(1.05, 1.05)
+script = ExtResource("4_rig")
+character = "nam_anh"
+
+[node name="PlayerRig" type="Node2D" parent="."]
+position = Vector2(320, 515)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("4_rig")
+
+[node name="Fx" type="Node2D" parent="."]
+script = ExtResource("5_fx")
+
+[node name="TitleBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 22.0
+offset_right = 320.0
+offset_bottom = 150.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = -6
+
+[node name="Title" type="Label" parent="TitleBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.31, 0.51, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.55, 0.18, 0.4, 0.35)
+theme_override_constants/outline_size = 18
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 18
+theme_override_fonts/font = ExtResource("6_title")
+theme_override_font_sizes/font_size = 64
+text = "MINH HÂN"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="TitleBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.52, 0.25, 0.43, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 20
+text = "Lễ Hội Trái Tim  ·  Happy Birthday"
+horizontal_alignment = 1
+
+[node name="MenuBox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 250.0
+offset_right = 860.0
+offset_bottom = 500.0
+theme_override_constants/separation = 12
+
+[node name="StartBtn" type="Button" parent="MenuBox"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 22
+text = "Vào lễ hội"
+
+[node name="ClosetBtn" type="Button" parent="MenuBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 18
+text = "Tủ đồ & Cửa hàng"
+
+[node name="GuideBtn" type="Button" parent="MenuBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 18
+text = "Cách chơi"
+
+[node name="QuitBtn" type="Button" parent="MenuBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 16
+text = "Thoát"
+
+[node name="Currency" type="Control" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 484.0
+offset_right = 396.0
+offset_bottom = 54.0
+script = ExtResource("7_currency")
+
+[node name="GuidePanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -180.0
+offset_right = 290.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Box" type="VBoxContainer" parent="GuidePanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="GuideTitle" type="Label" parent="GuidePanel/Box"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.31, 0.51, 1)
+theme_override_font_sizes/font_size = 24
+text = "Cách chơi"
+horizontal_alignment = 1
+
+[node name="GuideContent" type="Label" parent="GuidePanel/Box"]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = 6
+theme_override_font_sizes/font_size = 15
+text = "♥  Rê chuột để Minh Hân đi khắp sân trường, hành lang và sân thượng.
+♥  Giữ chuột lên một Nam Anh để phóng tia tình yêu. Chàng đi đâu thì rê theo đó!
+♥  Mỗi chàng đổ +1 tim. Đầy 10 tim trước khi hết giờ để qua màn; tim tự hao dần.
+♥  Đối thủ cướp chàng của bạn: bấm chuột thật nhanh để giành lại.
+♥  Cô quản lý mà thấy là đuổi theo. Bị bắt mất tim và mất chàng!
+♥  Qua màn được mở hộp quà: xu, kim cương, tóc, tia và trang phục hiếm."
+autowrap_mode = 2
+
+[node name="CloseGuideBtn" type="Button" parent="GuidePanel/Box"]
+custom_minimum_size = Vector2(180, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Đã hiểu"

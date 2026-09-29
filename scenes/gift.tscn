@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgift001scene"]
+
+[ext_resource type="Script" path="res://scripts/gift.gd" id="1_gift"]
+[ext_resource type="Script" path="res://scripts/art/zone_far.gd" id="2_far"]
+[ext_resource type="Script" path="res://scripts/art/zone_backdrop.gd" id="3_backdrop"]
+[ext_resource type="Script" path="res://scripts/vfx/fx.gd" id="4_fx"]
+[ext_resource type="Script" path="res://scripts/ui/currency_bar.gd" id="5_currency"]
+[ext_resource type="FontVariation" path="res://assets/fonts/title_font.tres" id="6_title"]
+[ext_resource type="Script" path="res://scripts/art/ambient.gd" id="7_ambient"]
+
+[node name="Gift" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_gift")
+
+[node name="Far" type="Node2D" parent="."]
+z_index = -30
+script = ExtResource("2_far")
+
+[node name="Backdrop" type="Node2D" parent="."]
+position = Vector2(-300, 0)
+script = ExtResource("3_backdrop")
+width = 2240.0
+
+[node name="Ambient" type="Node2D" parent="."]
+script = ExtResource("7_ambient")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+mouse_filter = 2
+color = Color(0.36, 0.14, 0.33, 0.45)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 960.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.36, 0.56, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("6_title")
+theme_override_font_sizes/font_size = 40
+text = "Chọn một hộp quà!"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 0
+offset_top = 102.0
+offset_right = 960.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(1, 0.94, 0.97, 1)
+theme_override_font_sizes/font_size = 17
+text = "Qua màn"
+horizontal_alignment = 1
+
+[node name="Boxes" type="Control" parent="."]
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="PrizeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 372.0
+offset_right = 780.0
+offset_bottom = 412.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.36, 0.56, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "Quà"
+horizontal_alignment = 1
+
+[node name="MineTag" type="Label" parent="."]
+layout_mode = 0
+offset_right = 130.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.36, 0.56, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 14
+text = "Hộp của bạn"
+horizontal_alignment = 1
+
+[node name="WearBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 440.0
+offset_right = 470.0
+offset_bottom = 490.0
+focus_mode = 0
+theme_type_variation = &"SecondaryButton"
+text = "Dùng ngay"
+
+[node name="ContinueBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 440.0
+offset_right = 690.0
+offset_bottom = 490.0
+focus_mode = 0
+text = "Tiếp tục"
+
+[node name="Currency" type="Control" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 14.0
+offset_right = 940.0
+offset_bottom = 54.0
+script = ExtResource("5_currency")
+
+[node name="Fx" type="Node2D" parent="."]
+script = ExtResource("4_fx")

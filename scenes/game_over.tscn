@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgameover001"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_overscript"]
+[ext_resource type="Script" path="res://scripts/art/zone_backdrop.gd" id="2_backdrop"]
+[ext_resource type="Script" path="res://scripts/art/zone_far.gd" id="2_far"]
+[ext_resource type="Script" path="res://scripts/art/ambient.gd" id="3_ambient"]
+[ext_resource type="Script" path="res://scripts/entities/character_rig.gd" id="4_rig"]
+[ext_resource type="Script" path="res://scripts/vfx/fx.gd" id="5_fx"]
+[ext_resource type="FontVariation" path="res://assets/fonts/title_font.tres" id="6_title"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_overscript")
+
+[node name="Far" type="Node2D" parent="."]
+z_index = -30
+script = ExtResource("2_far")
+
+[node name="Backdrop" type="Node2D" parent="."]
+position = Vector2(-300, 0)
+script = ExtResource("2_backdrop")
+width = 2240.0
+
+[node name="Ambient" type="Node2D" parent="."]
+script = ExtResource("3_ambient")
+
+[node name="Floaters" type="Node2D" parent="."]
+
+[node name="PlayerRig" type="Node2D" parent="."]
+position = Vector2(300, 505)
+scale = Vector2(1.25, 1.25)
+script = ExtResource("4_rig")
+
+[node name="Fx" type="Node2D" parent="."]
+script = ExtResource("5_fx")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 110.0
+offset_right = 900.0
+offset_bottom = 440.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.31, 0.51, 1)
+theme_override_fonts/font = ExtResource("6_title")
+theme_override_font_sizes/font_size = 30
+text = "Kết quả"
+horizontal_alignment = 1
+
+[node name="RankLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.62, 0.18, 1)
+theme_override_font_sizes/font_size = 16
+text = "Danh hiệu"
+horizontal_alignment = 1
+
+[node name="StatsLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+
+[node name="DescLabel" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.42, 0.53, 1)
+theme_override_constants/line_spacing = 4
+theme_override_font_sizes/font_size = 14
+text = "Mô tả"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="RestartBtn" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 48)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Chơi lại"
+
+[node name="MenuBtn" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 48)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_type_variation = &"SecondaryButton"
+text = "Về menu"
